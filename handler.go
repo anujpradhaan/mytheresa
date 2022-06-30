@@ -14,6 +14,9 @@ import (
 
 const DefaultCurrency = "EUR"
 
+// GetProducts serves as an entry point to API and is responsible
+// for reading all the products from the JSON data file.
+// It also, trims the results to max 5 as expected in the problem statement.
 func GetProducts(c *gin.Context) {
 	filters := types.FilteringParams{}
 	if err := c.ShouldBind(&filters); err != nil {
@@ -46,6 +49,8 @@ func GetProducts(c *gin.Context) {
 	}
 	// return only 5 elements list of products
 	if len(productsResponse) > 5 {
+		// Not applying any complex logic as the only ask in the problem
+		// statement was to return max 5 elements to the response.
 		productsResponse = productsResponse[:5]
 	}
 	c.JSON(http.StatusOK, productsResponse)

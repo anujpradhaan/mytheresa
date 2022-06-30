@@ -10,7 +10,8 @@ const (
 	CategoryRuleID = "category-discount"
 )
 
-// Define discounts of each category.
+// Define discounts of each category. If we want to define discounts for other categories,
+// then all we need to do is put one entry in the below map and, we are sorted.
 var categoryWiseDiscount = map[string]int{
 	CategoryBoots: 30, // boots category has 30% discount
 }

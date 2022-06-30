@@ -8,6 +8,7 @@ const (
 	CategoryFilter = "category-filter"
 )
 
+// Add a Category based filter at runtime
 func init() {
 	registerRule(&types.Filter{
 		Name: CategoryFilter,
@@ -19,6 +20,8 @@ func init() {
 
 			var subProducts []types.Product
 			for _, pr := range products {
+
+				// If product category matches the filtering params
 				if pr.Category == params.Category {
 					subProducts = append(subProducts, pr)
 				}
